@@ -128,7 +128,7 @@
 
         $conn = new mysqli($servername, $username, $password, $dbname);
 
-        $sql = $conn->prepare("SELECT * FROM `employees`");
+        $sql = $conn->prepare("SELECT * FROM employees");
 
         $sql->execute();
 
@@ -146,9 +146,23 @@
         <div class="table-cell">' . $row["Name"] . '</div>
         <div class="table-cell">' . $row["Position"] . '</div>
         <div class="table-cell">' . $row["RateType"] . '</div>
-        <div class="table-cell">' . $row["Rate"] . '</div>
+        <div class="table-cell">' . $row["Rate"] . '
+        
+        
+        </div>
+        
+        <form method="POST" action="updatef1.php">
             <button class="button update">Update</button>
+            <input type="hidden" name="id" value=" '.$row["EmployeeID"].'" required></input>
+
+        </form>
+            
+        <form method="POST" action="delete.php">
             <button class="button delete">Delete</button>
+            <input type="hidden" name="id" value=" '.$row["EmployeeID"].'" required></input>
+
+        </form>
+            
         </div>
     </div>
             ';
